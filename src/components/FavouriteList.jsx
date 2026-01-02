@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageCard = () => {
+const FavouriteList = () => {
     return(
         <div>
             
@@ -8,4 +8,4 @@ const ImageCard = () => {
     )
 }
 
-export default ImageCard;
+export default FavouriteList;

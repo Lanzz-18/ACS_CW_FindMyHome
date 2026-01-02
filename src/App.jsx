@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from './components/SearchBar';
-import ImageCard from './components/ImageCard';
-import Gallery from './components/Gallery';
+import PropertyCard from './components/PropertyCard';
+import PropertyPage from './components/PropertyPage';
 
 function App(){
   return(

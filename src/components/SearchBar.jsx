@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SearchBar(){
+const SearchBar = () => {
     return(
         <section>
             <h1>Believe in Finding it</h1>
@@ -8,10 +8,6 @@ function SearchBar(){
             
             {/* Creating the form*/}
             <form>
-                <label htmlFor="term">Search Gadget or Location</label><br/>
-                <input type="text" id="term" name="term"></input><br/>
-                <button>For Sale</button>
-                <button>For Rent</button>
             </form>
         </section>
     )
