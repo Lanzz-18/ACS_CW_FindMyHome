@@ -1,13 +1,13 @@
 import React from 'react';
 
-const SearchBar = () => {
+function SearchBar(location, purpose){
     return(
         <section>
-            <h1>Believe in Finding it</h1>
-            <h3>Search for the gadget, you are looking for [rent or sale]</h3>
-            
             {/* Creating the form*/}
             <form>
+                <h1>Find property for {purpose} in {location}</h1>
+
+                <label for="radius">Search radius</label>
             </form>
         </section>
     )

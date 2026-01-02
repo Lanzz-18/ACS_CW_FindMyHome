@@ -136,6 +136,15 @@
   color: white;
 }
 
+#search-button a{
+  text-decoration: none;
+  color: white;
+}
+
+#search-button a:hover{
+  color: #00aaff;
+}
+
 /*
 <div className="search-panel">
   <ul className="search-option-container">
