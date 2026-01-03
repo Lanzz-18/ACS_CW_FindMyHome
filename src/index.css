@@ -180,17 +180,117 @@
   background: palegoldenrod;
 }
 
-/*
-<div className="dropdown-container">
-    <div className="select">
-        <span className="selected">Discord</span>
-    </div>
-    <ul className="menu">
-        <li className="active">Discord</li>
-        <li>Test1</li>
-        <li>Test2</li>
-        <li>Test3</li>
-    </ul>
-</div>
+/* SearchBar + DropDown*/
+.search-form {
+  background-color: #cccccc;
+  padding: 2vh;
+  flex-direction: column;
+  border-radius: 1vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 2vh;
+}
 
+.search-form h1{
+  font-size: 3.5vh;
+  font-weight: 600;
+  padding: 0;
+  margin-top: 0;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  flex-wrap: wrap;
+  height: 200px;
+  padding: 1vh;
+}
+
+.search-form .form-group{
+  display: flex;
+  flex-direction: column;
+}
+
+.search-form .form-group select{
+  max-width: 150px;
+  border: none;
+  border-radius: 5px;
+  padding: 1vh;
+}
+
+.range-value-group{
+  border: 2px solid red;
+  width: fit-content;
+}
+
+.range-value-group .form-group select{
+  width: 80px;
+  max-width: 100px;
+}
+
+
+.range-values {
+  display: flex;
+  align-items: center;
+  gap: 2vh;
+}
+
+/*
+<form className="search-form">
+    <h1>Find property for {props.purpose} in {props.location}</h1>
+    <DropDown 
+        label="Search radius"
+        options={searchRadius}
+        default="This area only"
+        onSelect={(value) => console.log(`User selected: ${value}`)}
+    />
+    <div className="range-value-group">
+        <label>Price Range</label>
+        <div className="range-values">
+            <DropDown 
+                options={priceRange}
+                default="No min"
+                onSelect={(value) => console.log(`User selected: ${value}`)}
+            />
+            <p>-</p>
+            <DropDown 
+                options={priceRange}
+                default="No max"
+                onSelect={(value) => console.log(`User selected: ${value}`)}
+            />
+        </div>
+    </div>
+
+    <div className="range-values">
+        <label>No. of Bedrooms</label>
+        <DropDown 
+            options={bedroomCount}
+            default="No min"
+            onSelect={(value) => console.log(`User selected: ${value}`)}
+        />
+        <p>to</p>
+        <DropDown 
+            options={bedroomCount}
+            default="No max"
+            onSelect={(value) => console.log(`User selected: ${value}`)}
+        />
+    </div>
+    
+    <DropDown 
+        label="Property Type"
+        options={propertTypes}
+        default="Any"
+        onSelect={(value) => console.log(`User selected: ${value}`)}
+    />
+
+    <DropDown 
+        label="Added to Site"
+        options={addedToSite}
+        default="Anytime"
+        onSelect={(value) => console.log(`User selected: ${value}`)}
+    />
+
+    <button>Search properties</button>
+</form>
 */
