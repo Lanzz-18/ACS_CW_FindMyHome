@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+body {
+  background-color: rgba(222, 98, 98, 0.105);
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -19,18 +23,24 @@
   display: flex;
   align-items: center;
   padding: 2vh;
+  background-color: rgba(132, 0, 0, 0.583);
+  border-bottom: 2px solid rgba(132, 0, 0, 0.516);;
 }
 
 .Nav a{
   text-decoration: none;
   color: black;
+  font-weight: 600;
+  font-size: 2.2vh;
+  color: white;
 }
 
 .Nav a:hover{
-  color: rgb(0, 89, 255);
+  color: rgb(255, 158, 131);;
 }
 
 #logo{
+  color: rgb(255, 166, 0);
   margin-right: auto;
 }
 
@@ -375,6 +385,195 @@ form button:hover {
   color: #949494;
   font-size: 2.5vh;
   text-align: center;
-  margin-top: 25vh;
 }
 
+.results-section {
+  padding: 2vh;
+  min-height: 100vh;
+  margin-top: 10vh;
+  border-top: solid 1px black;
+}
+
+/* Property card */
+
+.product-card {
+  border-radius: 2vh;
+  margin: 3vh;
+  display: flex;
+  gap: 2vh;
+  height: fit-content;
+  width: 1000px;
+  overflow: hidden;
+  padding: 1vh;
+  background-color: white;
+  transition: 0.5s ease-in-out;
+}
+
+.product-card:hover {
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.078);
+}
+
+.property-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.profile-picture {
+  height: 350px;
+  width: 400px;
+  border-radius: 2vh;
+}
+
+.property-header {
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+}
+
+#location {
+  font-weight: 800;
+  font-size: 2.5vh;
+}
+
+#date {
+  color: rgba(49, 49, 49, 0.793);
+  font-weight: 600;
+  font-size: 2.3vh;
+  margin-bottom: 2vh;
+}
+
+.icon-group{
+  border-radius: 2vh;
+  background-color: rgba(255, 128, 37, 0.76);
+  width: 90px;
+  height: 20px;
+  display: flex;
+  gap: 0.5vh;
+  align-items: center;
+  justify-content: center;
+  padding: 1vh;
+}
+
+.icon-group p {
+  font-weight: 600;
+  color: white;
+  font-size: 12px;
+}
+
+.icon-group a {
+  font-weight: 600;
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.icon-group a:hover {
+  font-weight: 600;
+  color: white;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.icon-group img{
+  height: 20px;
+  width: 20px;
+}
+
+.icon-groups {
+  display: flex;
+  gap: 4vh;
+  margin-top: 2vh;
+}
+
+.product-card-footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-details {
+  display: flex;
+  gap: 2vh;
+  margin-top: 2vh;
+}
+
+.contact-group {
+  background-color: black;
+  padding: 1vh;
+  width: 180px;
+  border-radius: 3vh;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s ease-in-out;
+}
+
+.contact-group:hover {
+  background-color: rgb(86, 86, 86);
+}
+
+.contact-group img{
+  height: 20px;
+  width: 20px;
+}
+
+#mail{
+  background-color: rgba(128, 128, 128, 0.444);
+}
+
+#mail:hover{
+  background-color: rgba(77, 77, 77, 0.444);
+}
+
+#favourite-button {
+  border-radius: 2vh;
+  border: none;
+  padding: 1vh;
+  background-color: rgb(68, 255, 140);
+  font-weight: 600;
+  font-size: 2vh;
+  transition: 0.5s ease-in-out;
+}
+
+#favourite-button:hover {
+  background-color: rgb(0, 224, 86);
+}
+
+/*
+<div className="product-card">
+  <img src={props.picture} alt={"#"} className="profile-picture"></img>
+
+  <div className="property-details">
+      <div className="property-header">
+          <p id="location">{props.location}</p>
+            <h3 id="price">€{props.price}</h3>      
+      </div>
+      <p id="date">Added on {props.added.month} {props.added.day}, {props.added.year}</p>
+      <p>{props.description}</p>
+      <div className="icon-groups">
+          <div className="type-icon">
+              <img src={Bed} alt="Bed icon"></img>
+              <p>{props.type}</p>
+          </div>
+
+          <div className="bed-icon">
+              <img src={Bed} alt="Bed icon"></img>
+              <p>{props.bedrooms}</p>
+          </div>
+      </div>
+      
+      <div className="product-card-footer">
+          <div className="contact-details">
+              <div className="contact-details-call">
+                  <img src={Call} alt="telephone icon"></img>
+                  <p>Call</p>
+              </div>
+              <div className="contact-details-contact">
+                  <img src={Contact} alt="mail icon"></img>
+                  <p>Contact</p>
+              </div>
+          </div>
+          <button>Add to Favourites</button>
+      </div>
+  </div>
+</div>
+*/

@@ -1,5 +1,7 @@
 import React from 'react';
 import DropDown from './DropDown';
+import PropertyCard from './PropertyCard';
+import TestPic from '../assets/test.jpeg';
 
 const propertTypes =[
     "Houses", 
@@ -53,16 +55,16 @@ const searchRadius = [
 
 function SearchPage(props){
     return(
-        <section>
+        <div>
             {/* Creating the form*/}
             <form className="search-form">
-                <h1>Find property for {props.purpose} in {props.location}</h1>
+                <h1>Search properties for sale</h1>
                 <div className="filters">
                     <DropDown 
-                    label="Search radius"
-                    options={searchRadius}
-                    default="This area only"
-                    onSelect={(value) => console.log(`User selected: ${value}`)}
+                        label="Search radius"
+                        options={searchRadius}
+                        default="This area only"
+                        onSelect={(value) => console.log(`User selected: ${value}`)}
                     />
 
                     <div className="range-value-group">
@@ -116,9 +118,42 @@ function SearchPage(props){
                 </div>
             </form>
 
-            <h2 id="results-text">Results will load here</h2>
-        </section>
+            <section className='results-section'>
+                <h2 id="results-text">Property Results</h2>
+                <PropertyCard 
+                    type="House"
+                    bedrooms={3} 
+                    price={750000}         
+                    location="Petts Wood Road, Petts Wood, Orpington BR5"
+                    description="Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior..."
+                    picture={TestPic}
+                    added={{  
+                        "month":"October",
+                        "day":12,
+                        "year":2022
+                    }}
+                />
+            
+            </section>
+        </div>
     )
-}
+}/*
+ {
+    "id":"prop1",
+    "type":"House", - 
+    "bedrooms":3, - 
+    "price":750000, -
+    "tenure":"Freehold",
+    "description":"Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior...",
+    "location":"Petts Wood Road, Petts Wood, Orpington BR5", -
+    "picture":"images/prop1pic1small.jpg",
+    "url":"properties/prop1.html",
+    "added": { - 
+        "month":"October",
+        "day":12,
+        "year":2022
+    }
+},
+*/
 
 export default SearchPage;
