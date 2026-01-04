@@ -58,11 +58,13 @@ const PropertyDetails = () => {
                 </div>
 
                 <div className="show-content" id="floor-plan">
+                    <img src={`/images/${prop.id}/floor-plan.jpg`}></img>
                 </div>
 
 
-                <div className="show-content" id="google-maps">
-
+                <div className="show-content" id="google-maps"> 
+                    <h3>Google Maps Location</h3>
+                    <a href={`${prop["google-link"]}`}>View on maps</a>
                 </div>
             </div>
         </div>

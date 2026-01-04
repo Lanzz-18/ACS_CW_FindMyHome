@@ -15,7 +15,7 @@
                 "day":12,
                 "year":2022
             },
-            "google-links": "https://maps.app.goo.gl/axbKq9aHU7P7d8LJ9"
+            "google-link": "https://maps.app.goo.gl/axbKq9aHU7P7d8LJ9"
 
         },
 		{
@@ -33,7 +33,7 @@
                 "day":14,
                 "year":2022
             },
-            "google-links":"https://maps.app.goo.gl/BXCqSt2QS5RUvHsA7"
+            "google-link":"https://maps.app.goo.gl/BXCqSt2QS5RUvHsA7"
         },
         {
             "id":"prop3",
@@ -50,7 +50,7 @@
                 "day": 8,
                 "year":2024
             },
-            "google-links":"https://maps.app.goo.gl/PbFQ8bttnfewhpGw5"
+            "google-link":"https://maps.app.goo.gl/PbFQ8bttnfewhpGw5"
         },
         {
             "id":"prop4",
@@ -67,7 +67,7 @@
                 "day": 11,
                 "year":2025
             },
-            "google-links":"https://maps.app.goo.gl/3fDG7Su1T14D7jSz6"
+            "google-link":"https://maps.app.goo.gl/3fDG7Su1T14D7jSz6"
         },
         {
             "id":"prop5",
@@ -84,7 +84,7 @@
                 "day": 15,
                 "year":2025
             },
-            "google-links":"https://maps.app.goo.gl/72tSK7h5qZak6Yy3A"
+            "google-link":"https://maps.app.goo.gl/72tSK7h5qZak6Yy3A"
         },
         {
             "id":"prop6",
@@ -101,7 +101,7 @@
                 "day": 3,
                 "year":2025
             },
-            "google-links":"https://maps.app.goo.gl/mtQbhcDLuTNrhgwo6"
+            "google-link":"https://maps.app.goo.gl/mtQbhcDLuTNrhgwo6"
         },
         {
             "id":"prop7",
@@ -118,6 +118,6 @@
                 "day": 22,
                 "year":2025
             },
-            "google-links":"https://maps.app.goo.gl/Bjea3P1iRQ9hyi1y7"
+            "google-link":"https://maps.app.goo.gl/Bjea3P1iRQ9hyi1y7"
         }
 ]}
