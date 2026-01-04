@@ -1,11 +1,7 @@
 import React, {useState} from 'react';
 import SearchPage from './components/SearchPage';
-import PropertyCard from './components/PropertyCard';
-import PropertyPage from './components/PropertyPage';
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
-import homeImage from "./assets/homes.jpg";
-import DropDown from './components/DropDown';
 import Footer from './components/Footer';
 import PropertyDetails from './components/PropertyDetails';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
