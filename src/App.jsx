@@ -9,9 +9,9 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 function App(){
   return(
     <Router>
-      <div className="App"> 
+      <div className="app"> 
         <NavBar />
-        <div className="Content">
+        <div className="app-content">
           <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="search-page" element={<SearchPage />}/>

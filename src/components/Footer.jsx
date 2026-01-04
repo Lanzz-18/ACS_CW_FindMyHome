@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return(
-        <div className="Footer">
+        <div className="footer">
             <div className="footer-section">
                 <div className="footer-links">
                     <a href="#">Site map</a> 

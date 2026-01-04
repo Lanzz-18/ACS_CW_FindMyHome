@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Bed from "../assets/bed.png";
-import Call from "../assets/call.png";
-import Contact from "../assets/contact.png";
-import House from "../assets/house.png";
-import LinkIcon from "../assets/link.png";
+import Bed from "/images/bed.png";
+import Call from "/images/call.png";
+import Contact from "/images/contact.png";
+import House from "/images/house.png";
+import LinkIcon from "/images/link.png";
 import { Link } from "react-router-dom";
 
 const PropertyCard = (props) => {
