@@ -12,17 +12,16 @@ const PropertyDetails = () => {
         </div>
     )
   } else {
-    
     // Gallery arrow functions
     const [imgIndex, changeImgIndex] = useState(1);
+    // Previous image button
     function previousImg(){
         changeImgIndex(imgIndex > 1 ? imgIndex-1 : 7)
     }
-
+    // Next image button
     function nextImg(){
         changeImgIndex(imgIndex < 7 ? imgIndex+1 : 1)
     }
-
     // Tab functionality
     const [toggleContent, changeToggleContent] = useState(1)
     const updateToggle = (id) => {
@@ -30,7 +29,8 @@ const PropertyDetails = () => {
     }
 
     return (
-        <div className="property-details">
+        <div className="product-details-page">
+            <button>Back</button>
             <h1 id="property-details-heading">Property details</h1>
             <h1 id="property-location">{prop.location}</h1>
 
@@ -72,3 +72,14 @@ const PropertyDetails = () => {
 };
 
 export default PropertyDetails;
+
+/*
+ <iframe
+    title="Property location"
+    width="100%"
+    height="300"
+    style={{ border: 0 }}
+    loading="lazy"
+    src={'{https://maps.google.com/maps?q=${encodeURIComponent(property.location)}&z=15&output=embed}'}
+/>
+*/

@@ -37,133 +37,153 @@ for (let i = 50000; i <= 20000000; ) {
   i += increment;
 }
 
-function SearchPage() {
-  const [criteria, changeCriteria] = useState({
-    type: "Any",
-    minPrice: 0,
-    maxPrice: Infinity,
-    minBed: 0,
-    maxBed: Infinity,
-    postcode: "",
-    date: "Anytime",
-  });
-  const [filteredData, changeFilteredData] = useState(data.properties);
+// Main code body
+const SearchPage = () => {
+    // Creating default criteria for the search filters
+    const [criteria, changeCriteria] = useState({
+        type: "Any",
+        minPrice: 0,
+        maxPrice: Infinity,
+        minBed: 0,
+        maxBed: Infinity,
+        postcode: "",
+        date: "Anytime",
+    });
 
-  function filterChanges(prop) {
-    const propDate = `${prop.added.month} ${prop.added.day} ${prop.added.year}`;
-    const matchType = criteria.type === "Any" || prop.type === criteria.type;
-    const matchPrice =
-      prop.price >= criteria.minPrice && prop.price <= criteria.maxPrice;
-    const matchBeds =
-      prop.bedrooms >= criteria.minBed && prop.bedrooms <= criteria.maxBed;
-    const matchPostcode = prop.location
-      .toUpperCase()
-      .includes(criteria.postcode.toUpperCase());
-    const matchDate = criteria.date === "Anytime" || propDate === criteria.date;
-    return matchType && matchPrice && matchBeds && matchPostcode && matchDate;
-  }
+    // Creatiing a place to store the filtered data
+    const [filteredData, changeFilteredData] = useState(data.properties);
 
-  useEffect(() => {
-    const results = data.properties.filter(filterChanges);
-    changeFilteredData(results);
-  }, [criteria]);
+    // Checking each of the properties of each property
+    function filterChanges(prop) {
+        const propDate = `${prop.added.month} ${prop.added.day} ${prop.added.year}`;
+        const matchType = criteria.type === "Any" || prop.type === criteria.type;
+        const matchPrice = prop.price >= criteria.minPrice && prop.price <= criteria.maxPrice;
+        const matchBeds = prop.bedrooms >= criteria.minBed && prop.bedrooms <= criteria.maxBed;
+        const matchPostcode = prop.location.toUpperCase().includes(criteria.postcode.toUpperCase());
+        const matchDate = criteria.date === "Anytime" || propDate === criteria.date;
+        return matchType && matchPrice && matchBeds && matchPostcode && matchDate;
+    }
 
-  function updateCriteria(field, value) {
-    changeCriteria((oldCriteria) => ({ ...oldCriteria, [field]: value }));
-  }
+    // Updating filtered list everytime the criteria is changed
+    useEffect(() => {
+        const results = data.properties.filter(filterChanges);
+        changeFilteredData(results);
+    }, [criteria]);
 
-  return (
-    <div>
-      {/* Creating the form*/}
-      <form className="search-form">
-        <h1>Search properties for sale</h1>
-        <div className="filters">
-          <div className="search-input-group">
-            <label htmlFor="location-search">Search location</label>
-            <input
-              type="search"
-              placeholder="NW3, BR5, etc"
-              id="location-search"
-              value={criteria.postcode}
-              onChange={(val) => updateCriteria("postcode", val.target.value)}
-            ></input>
-          </div>
+    // Function to update the criteria everytime a search filter is changed
+    function updateCriteria(field, value) {
+        changeCriteria((oldCriteria) => ({ ...oldCriteria, [field]: value }));
+    }
 
-          <DropDown
-            label="Property Type"
-            options={propertTypes}
-            default="Any"
-            onSelect={(value) => updateCriteria("type", value)}
-          />
+    /* Clear button */
+    const clearFilters = (e) => {
+        e.preventDefault();
+        changeCriteria({
+            type: "Any",
+            minPrice: 0,
+            maxPrice: Infinity,
+            minBed: 0,
+            maxBed: Infinity,
+            postcode: "",
+            date: "Anytime",
+        })
+    }
 
-          <div className="search-input-group">
-            <label htmlFor="date-search">Search by date added</label>
-            <input
-              type="search"
-              placeholder="October 12 2025.."
-              id="date-search"
-              value={criteria.date}
-              onChange={(val) => updateCriteria("date", val.target.value)}
-            ></input>
-          </div>
-
-          <div className="range-value-group">
-            <label>No. of Bedrooms</label>
-            <div className="range-values">
-              <DropDown
-                options={bedroomCount}
-                default="No min"
-                onSelect={(value) => updateCriteria("minBed", value)}
-              />
-              <p>-</p>
-              <DropDown
-                options={bedroomCount}
-                default="No max"
-                onSelect={(value) => updateCriteria("maxBed", value)}
-              />
+    return (
+        <div>
+        {/* Creating the form*/}
+        <form className="search-form">
+            <h1>Search properties for sale</h1>
+            <div className="filters">
+            <div className="search-input-group">
+                <label htmlFor="location-search">Search location</label>
+                <input
+                type="search"
+                placeholder="NW3, BR5, etc"
+                id="location-search"
+                value={criteria.postcode}
+                onChange={(val) => updateCriteria("postcode", val.target.value)}
+                ></input>
             </div>
-          </div>
 
-          <div className="range-value-group">
-            <label>Price Range</label>
-            <div className="range-values">
-              <DropDown
-                options={priceRange}
-                default="No min"
-                onSelect={(value) =>
-                  updateCriteria("minPrice", parseInt(value.match(/(\d+)/)))
-                }
-              />
-              <p>-</p>
-              <DropDown
-                options={priceRange}
-                default="No max"
-                onSelect={(value) =>
-                  updateCriteria("maxPrice", parseInt(value.match(/(\d+)/)))
-                }
-              />
+            <DropDown
+                label="Property Type"
+                options={propertTypes}
+                default="Any"
+                onSelect={(value) => updateCriteria("type", value)}
+            />
+
+            <div className="search-input-group">
+                <label htmlFor="date-search">Search by date added</label>
+                <input
+                type="search"
+                placeholder="October 12 2025.."
+                id="date-search"
+                value={criteria.date}
+                onChange={(val) => updateCriteria("date", val.target.value)}
+                ></input>
             </div>
-          </div>
+
+            <div className="range-value-group">
+                <label>No. of Bedrooms</label>
+                <div className="range-values">
+                <DropDown
+                    options={bedroomCount}
+                    default="No min"
+                    onSelect={(value) => updateCriteria("minBed", value)}
+                />
+                <p>-</p>
+                <DropDown
+                    options={bedroomCount}
+                    default="No max"
+                    onSelect={(value) => updateCriteria("maxBed", value)}
+                />
+                </div>
+            </div>
+
+            <div className="range-value-group">
+                <label>Price Range</label>
+                <div className="range-values">
+                <DropDown
+                    options={priceRange}
+                    default="No min"
+                    onSelect={(value) =>
+                    updateCriteria("minPrice", parseInt(value.match(/(\d+)/)))
+                    }
+                />
+                <p>-</p>
+                <DropDown
+                    options={priceRange}
+                    default="No max"
+                    onSelect={(value) =>
+                    updateCriteria("maxPrice", parseInt(value.match(/(\d+)/)))
+                    }
+                />
+                </div>
+            </div>
+
+            <button id="clear-button" onClick={clearFilters}>Clear</button>
+            </div>
+        </form>
+
+        {/* Showcasing the results */}
+        <section className="results-section">
+            <h2 id="results-text">{filteredData.length} Property Results Found</h2>
+            {filteredData.map((property) => (
+            <PropertyCard
+                key={property.id}
+                id={property.id}
+                type={property.type}
+                bedrooms={property.bedrooms}
+                price={property.price}
+                location={property.location}
+                description={property.description}
+                picture={property.picture}
+                added={property.added}
+            />
+            ))}
+        </section>
         </div>
-      </form>
-
-      <section className="results-section">
-        <h2 id="results-text">{filteredData.length} Property Results Found</h2>
-        {filteredData.map((property) => (
-          <PropertyCard
-            key={property.id}
-            id={property.id}
-            type={property.type}
-            bedrooms={property.bedrooms}
-            price={property.price}
-            location={property.location}
-            description={property.description}
-            picture={property.picture}
-            added={property.added}
-          />
-        ))}
-      </section>
-    </div>
   );
 } /*
  {

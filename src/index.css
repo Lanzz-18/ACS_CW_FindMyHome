@@ -19,29 +19,46 @@ body {
 
 /* Navigation bar */
 
-.Nav{
+.nav{
   display: flex;
   align-items: center;
   padding: 2vh;
   background-color: rgba(132, 0, 0, 0.583);
   border-bottom: 2px solid rgba(132, 0, 0, 0.516);;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
-.Nav a{
+.nav a{
   text-decoration: none;
   color: black;
   font-weight: 600;
   font-size: 2.2vh;
   color: white;
+  transition: 0.3s ease-in-out;
 }
 
-.Nav a:hover{
+.nav a:hover{
   color: rgb(255, 158, 131);;
 }
 
 #logo{
-  color: rgb(255, 166, 0);
+  color: #ff914d;
   margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+}
+
+#logo span{
+  color: #2683ff;
+}
+
+#logo img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 }
 
 .nav-links {
@@ -129,11 +146,14 @@ body {
 
 /* Home */
 
-.Home{
+.home{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 2vh;
+  padding: 10vh 2vh;
+  background-color: white;
+  margin: 5vh 15vh;
+  border-radius: 5px;
 }
 
 .main-panel {
@@ -182,7 +202,7 @@ body {
 .search-option-container{
   display: flex;
   gap: 7vh;
-  justify-content: flex-start;
+  justify-content: space-around;
   padding: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -217,6 +237,7 @@ body {
 }
 
 .search-group label{
+  margin-top: 2vh;
   font-size: 2.5vh;
   font-weight: 600;
 }
@@ -241,15 +262,22 @@ body {
   font-weight: 600;
   background-color: #1b3644;
   color: white;
+  transition: 0.3s ease-in-out;
+}
+
+#search-button:hover {
+  box-shadow: 1px 1px 7px black;
+  background-color: #1b3644;
 }
 
 #search-button a{
   text-decoration: none;
   color: white;
+  transition: 0.3s ease-in-out;
 }
 
 #search-button a:hover{
-  color: #00aaff;
+  text-shadow: 0px 0px 10px white;
 }
 
 .dropdown-container{
@@ -287,7 +315,7 @@ body {
   background: palegoldenrod;
 }
 
-/* SearchBar + DropDown*/
+/* Search page + DropDown*/
 .search-form {
   background-color: #cccccc7a;
   padding: 2vh;
@@ -401,11 +429,14 @@ form button{
   font-size: 2.5svh;
   border: none;
   font-weight: 550;
+  transition: 0.3s ease-in-out;
 }
 
 form button:hover {
   background-color: rgba(255, 60, 0, 0.811);
 }
+
+
 
 #results-text {
   font-weight: 200;
@@ -418,7 +449,10 @@ form button:hover {
   padding: 2vh;
   min-height: 100vh;
   margin-top: 10vh;
-  border-top: solid 1px black;
+  padding: 1vh 2vh;
+  background-color: white;
+  margin: 5vh 15vh;
+  border-radius: 5px;
 }
 
 /* Property card */
@@ -432,12 +466,12 @@ form button:hover {
   width: 1000px;
   overflow: hidden;
   padding: 1vh;
-  background-color: white;
-  transition: 0.5s ease-in-out;
+  background-color: rgba(234, 234, 234, 0.846);
+  transition: 0.3s ease-in-out;
 }
 
 .product-card:hover {
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.078);
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.239);
 }
 
 .property-details {
@@ -567,7 +601,7 @@ form button:hover {
 
 /* ProductDetails page */
 
-.property-details {
+.product-details-page {
   padding: 2vh;
   background-color: white;
   margin: 5vh 15vh;
@@ -616,7 +650,7 @@ form button:hover {
 }
 
 #image-view {
-  height: 600px;
+  height: 520px;
   width: 1000px;
   border-radius: 20px;
 }
@@ -625,7 +659,7 @@ form button:hover {
   display: flex;
   flex-direction: column;
   width: fit-content;
-  margin-left: vh;
+  margin-top: 2vh;
   gap: 2vh;
   padding: 0 15vh;
   font-size: 3.2vh;
