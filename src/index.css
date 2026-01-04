@@ -567,50 +567,151 @@ form button:hover {
 
 /* ProductDetails page */
 
+.property-details {
+  padding: 2vh;
+  background-color: white;
+  margin: 5vh 15vh;
+  border-radius: 5px;
+}
+
+#property-details-heading {
+  font-size: 3vh;
+  font-weight: 800;
+  color: #ff4e0e;
+}
+
+#property-location {
+  font-size: 4vh;
+  font-weight: 700;
+}
+
+#gallery-heading {
+  font-size: 3vh;
+  font-style: italic;
+  text-align: center;
+  border-top: 1px solid black;
+  padding: 2vh;
+}
+
+.property-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+}
+
+.property-gallery button{
+  height: 40px;
+  width: 40px;
+  background-color: #ff956e;
+  padding: 2vh;
+  border: none;
+  border-radius: 60%;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.property-gallery button:hover{
+  background-color: #aa6045;
+}
+
+#image-view {
+  height: 600px;
+  width: 1000px;
+  border-radius: 20px;
+}
+
+.property-sub-details{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin-left: vh;
+  gap: 2vh;
+  padding: 0 15vh;
+  font-size: 3.2vh;
+  font-weight: 600;
+}
+
+.property-sub-details p > span {
+  color: #aa6045;
+}
+
+.tab-section {
+  overflow: hidden;
+  margin:0 auto;
+  margin-top: 5vh;
+  width: 1000px;
+  background-color: #210a05;
+  padding: 2vh;
+  border-radius: 2vh;
+  color: white;
+}
+
+.tab-headings {
+  list-style: none;
+  display: flex;
+  gap: 10vh;
+  font-weight: 600;
+  font-size: 4vh;
+  justify-content: center;
+  padding-bottom: 1vh;
+  border-bottom: 1px solid rgb(255, 197, 103);
+}
+
+.show-content{
+  height: fit-content;
+  width: 800px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2vh;
+  margin: 0 auto;
+  text-align: left;
+  margin-top: 1vh;
+}
+
 .content{
   display: none;
 }
 
-.show-content{
-  color: black;
+#floor-plan {
+  height: 800px;
 }
 
+#google-maps{
+  gap: 2vh;
+}
+
+#google-maps a{
+  text-decoration: none;
+  color: orange;
+}
+
+#google-maps a:hover{
+  text-decoration: underline;
+  color: rgb(255, 102, 0);
+}
 /*
-<div className="product-card">
-  <img src={props.picture} alt={"#"} className="profile-picture"></img>
+<div className="tab-section">
+  <ul className="tab-headings">
+      <li>Description</li>
+      <li>Floor plan</li>
+      <li>Google maps</li>
+  </ul>
+  <div className="show-content" id="description">
+      <p>{prop.description}</p>
+  </div>
 
-  <div className="property-details">
-      <div className="property-header">
-          <p id="location">{props.location}</p>
-            <h3 id="price">€{props.price}</h3>      
-      </div>
-      <p id="date">Added on {props.added.month} {props.added.day}, {props.added.year}</p>
-      <p>{props.description}</p>
-      <div className="icon-groups">
-          <div className="type-icon">
-              <img src={Bed} alt="Bed icon"></img>
-              <p>{props.type}</p>
-          </div>
+  <div className="show-content" id="floor-plan">
+      <img src={`/images/${prop.id}/floor-plan.jpg`}></img>
+  </div>
 
-          <div className="bed-icon">
-              <img src={Bed} alt="Bed icon"></img>
-              <p>{props.bedrooms}</p>
-          </div>
-      </div>
-      
-      <div className="product-card-footer">
-          <div className="contact-details">
-              <div className="contact-details-call">
-                  <img src={Call} alt="telephone icon"></img>
-                  <p>Call</p>
-              </div>
-              <div className="contact-details-contact">
-                  <img src={Contact} alt="mail icon"></img>
-                  <p>Contact</p>
-              </div>
-          </div>
-          <button>Add to Favourites</button>
-      </div>
+
+  <div className="show-content" id="google-maps"> 
+      <h3>Google Maps Location</h3>
+      <a href={`${prop["google-link"]}`}>View on maps</a>
   </div>
 </div>
+
 */

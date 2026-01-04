@@ -31,20 +31,20 @@ const PropertyDetails = () => {
 
     return (
         <div className="property-details">
-            <h1>Property details</h1>
-            <h1>{prop.location}</h1>
+            <h1 id="property-details-heading">Property details</h1>
+            <h1 id="property-location">{prop.location}</h1>
 
-            <h4>Gallery</h4>
+            <h4 id="gallery-heading">Gallery</h4>
             <div className="property-gallery">
-                <button onClick={previousImg}><img src="/images/left-arrow.png"></img></button>
+                <button onClick={previousImg}>&lt;</button>
                 <img src={`/images/${prop.id}/${imgIndex}.jpeg`} id="image-view"></img>
-                <button onClick={nextImg}><img src="/images/right-arrow.png"></img></button>
+                <button onClick={nextImg}>&gt;</button>
             </div>
 
             <div className="property-sub-details">
-                <p>Bedrooms: {prop.bedrooms}</p>
-                <p>Price: €{prop.price}</p>
-                <p>Type: {prop.type}</p>
+                <p>- Bedrooms: <span>{prop.bedrooms}</span></p>
+                <p>- Price: <span>€{prop.price}</span></p>
+                <p>- Type: <span>{prop.type}</span></p>
             </div>
 
             <div className="tab-section">
@@ -57,21 +57,18 @@ const PropertyDetails = () => {
                     <p>{prop.description}</p>
                 </div>
 
-                <div className="show-content" id="floor-plan">
+                <div className="content" id="floor-plan">
                     <img src={`/images/${prop.id}/floor-plan.jpg`}></img>
                 </div>
 
-
-                <div className="show-content" id="google-maps"> 
+                <div className="content" id="google-maps"> 
                     <h3>Google Maps Location</h3>
-                    <a href={`${prop["google-link"]}`}>View on maps</a>
+                    <a href={`${prop["google-link"]}`} target="_blank">View on maps</a>
                 </div>
             </div>
         </div>
     );
   }
-
-  
 };
 
 export default PropertyDetails;
