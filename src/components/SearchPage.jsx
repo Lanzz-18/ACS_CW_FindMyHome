@@ -67,16 +67,18 @@ function SearchPage(){
         minBed: 0,
         maxBed: Infinity,
         postcode: '',
-        date: "Anytime"
+        date: 'Anytime'
     });
     const [filteredData, changeFilteredData] = useState(data.properties);
 
     function filterChanges(prop){
+        const propDate = `${prop.added.month} ${prop.added.day} ${prop.added.year}`;
         const matchType = criteria.type === 'Any' || prop.type === criteria.type;
         const matchPrice = prop.price >= criteria.minPrice && prop.price <= criteria.maxPrice;
         const matchBeds = prop.bedrooms >= criteria.minBed && prop.bedrooms <= criteria.maxBed;
         const matchPostcode = prop.location.toUpperCase().includes(criteria.postcode.toUpperCase());
-        return matchType && matchPrice && matchBeds && matchPostcode;
+        const matchDate = criteria.date === 'Anytime' || propDate === criteria.date;
+        return matchType && matchPrice && matchBeds && matchPostcode && matchDate;
     };
 
     useEffect(() => {
@@ -87,22 +89,6 @@ function SearchPage(){
     function updateCriteria(field, value){
         changeCriteria(oldCriteria => ({...oldCriteria, [field]:value}))
     }
-
-    /*
-    <DropDown 
-        label="Search radius"
-        options={searchRadius}
-        default="This area only"
-        onSelect={(value) => updateCriteria('type', value)}
-    /> 
-
-    <DropDown 
-        label="Added to Site"
-        options={addedToSite}
-        default="Anytime"
-        onSelect={(value) => console.log(`User selected: ${value}`)}
-    />
-    */
 
     return(
         <div>
@@ -143,13 +129,13 @@ function SearchPage(){
                             <DropDown 
                                 options={bedroomCount}
                                 default="No min"
-                                onSelect={(value) => console.log(`User selected: ${value}`)}
+                                onSelect={(value) => updateCriteria('minBed', value)}
                             />
                             <p>-</p>
                             <DropDown 
                                 options={bedroomCount}
                                 default="No max"
-                                onSelect={(value) => console.log(`User selected: ${value}`)}
+                                onSelect={(value) => updateCriteria('maxBed', value)}
                             />
                         </div>
                     </div>
@@ -160,13 +146,13 @@ function SearchPage(){
                             <DropDown 
                                 options={priceRange}
                                 default="No min"
-                                onSelect={(value) => updateCriteria('minPrice', parseInt(value.replace(/\D/g, '')))}
+                                onSelect={(value) => updateCriteria('minPrice', parseInt(value.match(/(\d+)/)))}
                             />
                             <p>-</p>
                             <DropDown 
                                 options={priceRange}
                                 default="No max"
-                                onSelect={(value) => updateCriteria('maxPrice', parseInt(value.replace(/\D/g, '')))}
+                                onSelect={(value) => updateCriteria('maxPrice', parseInt(value.match(/(\d+)/)))}
                             />
                         </div>
                     </div>

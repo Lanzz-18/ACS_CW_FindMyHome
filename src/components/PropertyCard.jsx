@@ -16,7 +16,7 @@ const PropertyCard = (props) => {
           <h3 id="price">€{props.price}</h3>
         </div>
         <p id="date">
-          Added on {props.added.month} {props.added.day}, {props.added.year}
+          Added on {props.added.month} {props.added.day} {props.added.year}
         </p>
         <p>{props.description}</p>
         <div className="icon-groups">
