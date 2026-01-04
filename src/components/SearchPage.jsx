@@ -128,6 +128,11 @@ const SearchPage = () => {
     })
   };
 
+  // Clear favourites
+  const clearFav = () => {
+    changeFavourites([])
+  }
+
   return (
     <div>
       {/* Creating the form*/}
@@ -214,6 +219,7 @@ const SearchPage = () => {
         onDrop={handleDrop}
       >
         <p id="favourite-section-header">{favourites.length} Favourite Properties Added</p>
+        <button id="favourite-clear-button" onClick={clearFav}>Clear</button>
         {favourites.length === 0 
             ? (<p>Add your favourite properties here</p>) 
             : (
@@ -231,6 +237,7 @@ const SearchPage = () => {
                     ))}
                 </div>
         )}
+
       </div>
 
       {/* Showcasing the results */}

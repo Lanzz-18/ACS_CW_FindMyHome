@@ -20,12 +20,13 @@ body {
 /* Navigation bar */
 
 .nav{
+  position: sticky;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 2vh;
   background-color: rgba(132, 0, 0, 0.583);
   border-bottom: 2px solid rgba(132, 0, 0, 0.516);;
-  position: sticky;
   top: 0;
   z-index: 2;
 }
@@ -45,7 +46,6 @@ body {
 
 #logo{
   color: #ff914d;
-  margin-right: auto;
   display: flex;
   align-items: center;
   gap: 1vh;
@@ -63,86 +63,35 @@ body {
 
 .nav-links {
   display: flex;
-  margin-right: auto;
   gap: 10vh;
 }
 
 /* Footer */
+
 .Footer {
   margin: 0;
 }
 
-.footer-top {
-  display: flex;
-  gap: 5vh;
-  padding: 2vh;
-  justify-content: center;
-  background-color: rgba(128, 128, 128, 0.131);
-  border-top: 2px solid rgba(0, 0, 0, 0.292);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.292);
-  margin: 0;
-}
-
-.footer-link-section{
-  display: flex;
-  flex-direction: column;
-  gap: 2vh;
-  width: 200px;
-}
-
-.footer-link-section a{
-  text-decoration: none;
-  color: #5d5d5d;
-}
-
-.footer-link-section a:hover{
-  color: #1d1d1d;
-  text-decoration: underline;
-}
-
-.footer-bottom {
+.footer-section {
   padding: 2vh;
 }
 
-.footer-bottom p {
+.footer-section p {
   color: rgba(0, 0, 0, 0.534);
   border-top: 1px solid black;
   padding: 2vh 0;
 }
 
-.footer-bottom-links {
-  margin-bottom: 5vh;
+.footer-links {
   display: flex;
 }
 
-.footer-bottom-links a{
+.footer-links a{
   text-decoration: none;
   color: rgba(0, 0, 0, 0.865);
   padding: 2vh;
+  color: rgba(0, 0, 0, 0.691);
 }
-/*
-<div className="footer-top">
-  <div className="footer-link-section">
-      <h3>Resources</h3>
-      <a href="#">Property News</a>
-      <a href="#">Buyer guides</a>
-      <a href="#">Seller guides</a>
-      <a href="#">Renter guides</a>
-      <a href="#">Landlord guides</a>
-      <a href="#">Mortage guides</a>
-  </div>
-</div>
-<div className="footer-bottom">
-  <div className="footer-bottom-links">
-      <a href="#">Site map</a> 
-      <a href="#">Help</a> 
-      <a href="#">Safety and Security</a> 
-      <a href="#">Terms of use</a> 
-      <a href="#">Privacy Policy</a>           
-  </div>
-  <p>Copyright &copy 2025 Senal Perera. All rights reserved</p>
-</div>
-*/
 
 /* Home */
 
@@ -257,7 +206,7 @@ body {
   padding: 2vh;
   height: 2vh;
   border-radius: 1vh;
-  min-width: 150px;
+  max-width: 150px;
   min-height: 50px;
   font-weight: 600;
   background-color: #1b3644;
@@ -502,30 +451,20 @@ form button:hover {
   font-size: 2.2vh;
 }
 
-/*
-<div
-  className="favourites-bar"
-  onDragOver={(e) => e.preventDefault()}
-  onDrop={handleDrop}
->
-  {favourites.length === 0 
-      ? (<p>Add your favourite properties here</p>) 
-      : (
-          <div className="fav-props-container">
-              {favourites.map((favProperty) => (
-                  <div key={favProperty.id} className="fav-prop-profile">
-                      <img src={`images/${favProperty.picture}`} alt="Property picture" />
-                      <div>
-                          <p>{favProperty.location}</p>
-                          <p><string>{favProperty.type}</string></p>
-                      </div>
-                  </div>
-              ))}
-          </div>
-  )}
-</div>
+#favourite-clear-button {
+  margin: 2vh 0;
+  background-color: #949494;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 1vh 2vh;
+  transition: 0.3s ease-in-out;
+}
 
-*/
+#favourite-clear-button:hover {
+  color: red;
+  background-color: #5d5d5d;
+}
 
 #results-text {
   font-weight: 200;
@@ -841,26 +780,3 @@ form button:hover {
   text-decoration: underline;
   color: rgb(255, 102, 0);
 }
-/*
-<div className="tab-section">
-  <ul className="tab-headings">
-      <li>Description</li>
-      <li>Floor plan</li>
-      <li>Google maps</li>
-  </ul>
-  <div className="show-content" id="description">
-      <p>{prop.description}</p>
-  </div>
-
-  <div className="show-content" id="floor-plan">
-      <img src={`/images/${prop.id}/floor-plan.jpg`}></img>
-  </div>
-
-
-  <div className="show-content" id="google-maps"> 
-      <h3>Google Maps Location</h3>
-      <a href={`${prop["google-link"]}`}>View on maps</a>
-  </div>
-</div>
-
-*/

@@ -19,10 +19,10 @@ const Home = () => {
                 <hr />
                 <form className="search-panel-form">
                     <div className="search-group">
-                    <label htmlFor="search">Search properties to buy</label>
-                    <input type="search" id="search" placeholder='Bath, NW3, or Leeds station'></input>
+                        <label htmlFor="search">Search properties to buy</label>
+                        <input type="search" id="search" placeholder='Click search to explore...'></input>
                     </div>
-                    <button id="search-button"><Link to="/search-page">Search</Link></button>
+                    <Link to="/search-page"><button id="search-button">Search</button></Link>
                 </form>
                 </div>
             </div>

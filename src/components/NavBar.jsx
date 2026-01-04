@@ -10,9 +10,7 @@ const NavBar = () => {
                 <p>FindMy<span>Home</span></p>
             </Link>
             <div className="nav-links">
-                <a href="search-page">Buy</a>
-                <a href="#">All Props</a>
-                <a href="#">About</a>
+                <a href="search-page">Buy Properties</a>
             </div>
         </div>
     )
