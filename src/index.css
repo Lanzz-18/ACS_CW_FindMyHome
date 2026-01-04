@@ -565,6 +565,16 @@ form button:hover {
   background-color: rgb(0, 224, 86);
 }
 
+/* ProductDetails page */
+
+.content{
+  display: none;
+}
+
+.show-content{
+  color: black;
+}
+
 /*
 <div className="product-card">
   <img src={props.picture} alt={"#"} className="profile-picture"></img>

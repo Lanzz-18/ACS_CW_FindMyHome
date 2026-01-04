@@ -14,7 +14,9 @@
                 "month":"October",
                 "day":12,
                 "year":2022
-            }
+            },
+            "google-links": "https://maps.app.goo.gl/axbKq9aHU7P7d8LJ9"
+
         },
 		{
             "id":"prop2",
@@ -30,7 +32,8 @@
                 "month":"September",
                 "day":14,
                 "year":2022
-            }
+            },
+            "google-links":"https://maps.app.goo.gl/BXCqSt2QS5RUvHsA7"
         },
         {
             "id":"prop3",
@@ -46,7 +49,8 @@
                 "month":"February",
                 "day": 8,
                 "year":2024
-            }
+            },
+            "google-links":"https://maps.app.goo.gl/PbFQ8bttnfewhpGw5"
         },
         {
             "id":"prop4",
@@ -62,7 +66,8 @@
                 "month":"June",
                 "day": 11,
                 "year":2025
-            }
+            },
+            "google-links":"https://maps.app.goo.gl/3fDG7Su1T14D7jSz6"
         },
         {
             "id":"prop5",
@@ -78,7 +83,8 @@
                 "month":"September",
                 "day": 15,
                 "year":2025
-            }
+            },
+            "google-links":"https://maps.app.goo.gl/72tSK7h5qZak6Yy3A"
         },
         {
             "id":"prop6",
@@ -94,22 +100,24 @@
                 "month":"November",
                 "day": 3,
                 "year":2025
-            }
+            },
+            "google-links":"https://maps.app.goo.gl/mtQbhcDLuTNrhgwo6"
         },
         {
             "id":"prop7",
-			"type":"Plot",
+			"type":"Land",
             "bedrooms":5,
-			"price":1500000,
+			"price":4500000,
 			"tenure":"Leasehold",
-			"description":"An incredibly rare and unique development opportunity for a purchaser to create their very own family home from new. Full planning permission has been granted (planning reference : 24/06560/FU ) for the construction of a five bedroom, five bathroom detached home circa 6000sqft being set over three floors.",
-			"location":"Wike Ridge Lane, Leeds, West Yorkshire",
+			"description":"The main building, Gloucester House, comprises 547 sq m (5,887 sq ft) GIA over basement to first floors, with a further c.185 sqm (1,988 sq ft) GIA in the loft. It has an EPC rating of C.",
+			"location":"33 Daleham Gardens, Hampstead, London, NW3 5BU",
 			"picture":"prop7/1.jpeg",
 			"url":"properties/prop2.html",
             "added": {
                 "month":"October",
                 "day": 22,
                 "year":2025
-            }
+            },
+            "google-links":"https://maps.app.goo.gl/Bjea3P1iRQ9hyi1y7"
         }
 ]}

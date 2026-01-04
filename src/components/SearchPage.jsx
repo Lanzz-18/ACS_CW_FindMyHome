@@ -1,182 +1,171 @@
-import React, {useState, useEffect} from 'react';
-import DropDown from './DropDown';
-import PropertyCard from './PropertyCard';
-import data from '../assets/properties.json';
+import React, { useState, useEffect } from "react";
+import DropDown from "./DropDown";
+import PropertyCard from "./PropertyCard";
+import data from "../assets/properties.json";
 
 /* Creating list of property types */
-const propertTypes =[
-    "House", 
-    "Flat", 
-    "Apartment",
-    "Bungalow", 
-    "Plot", 
-    "Penthouse"
+const propertTypes = [
+  "House",
+  "Flat",
+  "Apartment",
+  "Bungalow",
+  "Land",
+  "Penthouse",
 ];
 
 /* Creating list of bedroom ranges */
-const bedroomCount = ["Studio", 1, 2, 3, 4 ,5];
-
-/* Creating list of added to site values */
-const addedToSite = [
-    "Last 24 hours", 
-    "Last 3 days", 
-    "Last 7 days", 
-    "Last 14 days"
-];
+const bedroomCount = ["Studio", 1, 2, 3, 4, 5];
 
 /* Creating list of price ranges */
 const priceRange = [];
 let increment = 10000;
-for(let i=50000; i<=20000000;){
-    priceRange.push("€"+i)
-    if(i === 300000){
-        increment = 25000
-    } else if (i === 500000){
-        increment = 50000
-    } else if (i === 700000){
-        increment = 100000
-    } else if (i === 1000000){
-        increment = 500000
-    } else if (i === 3000000){
-        increment = 1000000
-    } else if (i === 10000000){
-        increment = 5000000
-    }
-    i += increment;
+for (let i = 50000; i <= 20000000; ) {
+  priceRange.push("€" + i);
+  if (i === 300000) {
+    increment = 25000;
+  } else if (i === 500000) {
+    increment = 50000;
+  } else if (i === 700000) {
+    increment = 100000;
+  } else if (i === 1000000) {
+    increment = 500000;
+  } else if (i === 3000000) {
+    increment = 1000000;
+  } else if (i === 10000000) {
+    increment = 5000000;
+  }
+  i += increment;
 }
 
-/* Creating list of search radius */
-const searchRadius = [
-    "Within ¼ mile",
-    "Within ½ mile",
-    "Within 1 mile",
-    "Within 3 miles",
-    "Within 5 miles",
-    "Within 10 miles",
-    "Within 15 miles",
-    "Within 20 miles",
-    "Within 30 miles",
-    "Within 40 miles"
-]
+function SearchPage() {
+  const [criteria, changeCriteria] = useState({
+    type: "Any",
+    minPrice: 0,
+    maxPrice: Infinity,
+    minBed: 0,
+    maxBed: Infinity,
+    postcode: "",
+    date: "Anytime",
+  });
+  const [filteredData, changeFilteredData] = useState(data.properties);
 
-function SearchPage(){
-    const[criteria, changeCriteria] = useState({
-        type:"Any",
-        minPrice:0,
-        maxPrice: Infinity,
-        minBed: 0,
-        maxBed: Infinity,
-        postcode: '',
-        date: 'Anytime'
-    });
-    const [filteredData, changeFilteredData] = useState(data.properties);
+  function filterChanges(prop) {
+    const propDate = `${prop.added.month} ${prop.added.day} ${prop.added.year}`;
+    const matchType = criteria.type === "Any" || prop.type === criteria.type;
+    const matchPrice =
+      prop.price >= criteria.minPrice && prop.price <= criteria.maxPrice;
+    const matchBeds =
+      prop.bedrooms >= criteria.minBed && prop.bedrooms <= criteria.maxBed;
+    const matchPostcode = prop.location
+      .toUpperCase()
+      .includes(criteria.postcode.toUpperCase());
+    const matchDate = criteria.date === "Anytime" || propDate === criteria.date;
+    return matchType && matchPrice && matchBeds && matchPostcode && matchDate;
+  }
 
-    function filterChanges(prop){
-        const propDate = `${prop.added.month} ${prop.added.day} ${prop.added.year}`;
-        const matchType = criteria.type === 'Any' || prop.type === criteria.type;
-        const matchPrice = prop.price >= criteria.minPrice && prop.price <= criteria.maxPrice;
-        const matchBeds = prop.bedrooms >= criteria.minBed && prop.bedrooms <= criteria.maxBed;
-        const matchPostcode = prop.location.toUpperCase().includes(criteria.postcode.toUpperCase());
-        const matchDate = criteria.date === 'Anytime' || propDate === criteria.date;
-        return matchType && matchPrice && matchBeds && matchPostcode && matchDate;
-    };
+  useEffect(() => {
+    const results = data.properties.filter(filterChanges);
+    changeFilteredData(results);
+  }, [criteria]);
 
-    useEffect(() => {
-        const results = data.properties.filter(filterChanges)
-        changeFilteredData(results);
-    }, [criteria])
+  function updateCriteria(field, value) {
+    changeCriteria((oldCriteria) => ({ ...oldCriteria, [field]: value }));
+  }
 
-    function updateCriteria(field, value){
-        changeCriteria(oldCriteria => ({...oldCriteria, [field]:value}))
-    }
+  return (
+    <div>
+      {/* Creating the form*/}
+      <form className="search-form">
+        <h1>Search properties for sale</h1>
+        <div className="filters">
+          <div className="search-input-group">
+            <label htmlFor="location-search">Search location</label>
+            <input
+              type="search"
+              placeholder="NW3, BR5, etc"
+              id="location-search"
+              value={criteria.postcode}
+              onChange={(val) => updateCriteria("postcode", val.target.value)}
+            ></input>
+          </div>
 
-    return(
-        <div>
-            {/* Creating the form*/}
-            <form className="search-form">
-                <h1>Search properties for sale</h1>
-                <div className="filters">
-                    <div className="search-input-group">
-                        <label htmlFor="location-search">Search location</label>
-                        <input 
-                            type='search' 
-                            placeholder="NW3, BR5, etc" 
-                            id="location-search"
-                            value={criteria.postcode}
-                            onChange={(val) => updateCriteria('postcode', val.target.value)}></input>
-                    </div>
+          <DropDown
+            label="Property Type"
+            options={propertTypes}
+            default="Any"
+            onSelect={(value) => updateCriteria("type", value)}
+          />
 
-                    <DropDown 
-                        label="Property Type"
-                        options={propertTypes}
-                        default="Any"
-                        onSelect={(value) => updateCriteria('type', value)}
-                    />
+          <div className="search-input-group">
+            <label htmlFor="date-search">Search by date added</label>
+            <input
+              type="search"
+              placeholder="October 12 2025.."
+              id="date-search"
+              value={criteria.date}
+              onChange={(val) => updateCriteria("date", val.target.value)}
+            ></input>
+          </div>
 
-                    <div className="search-input-group">
-                        <label htmlFor="date-search">Search by date added</label>
-                        <input 
-                            type='search' 
-                            placeholder="October 12 2025.." 
-                            id="date-search"
-                            value={criteria.date}
-                            onChange={(val) => updateCriteria('date',val.target.value)}></input>
-                    </div>
+          <div className="range-value-group">
+            <label>No. of Bedrooms</label>
+            <div className="range-values">
+              <DropDown
+                options={bedroomCount}
+                default="No min"
+                onSelect={(value) => updateCriteria("minBed", value)}
+              />
+              <p>-</p>
+              <DropDown
+                options={bedroomCount}
+                default="No max"
+                onSelect={(value) => updateCriteria("maxBed", value)}
+              />
+            </div>
+          </div>
 
-                    <div className="range-value-group">
-                        <label>No. of Bedrooms</label>
-                        <div className="range-values">
-                            <DropDown 
-                                options={bedroomCount}
-                                default="No min"
-                                onSelect={(value) => updateCriteria('minBed', value)}
-                            />
-                            <p>-</p>
-                            <DropDown 
-                                options={bedroomCount}
-                                default="No max"
-                                onSelect={(value) => updateCriteria('maxBed', value)}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="range-value-group">
-                        <label>Price Range</label>
-                        <div className="range-values">
-                            <DropDown 
-                                options={priceRange}
-                                default="No min"
-                                onSelect={(value) => updateCriteria('minPrice', parseInt(value.match(/(\d+)/)))}
-                            />
-                            <p>-</p>
-                            <DropDown 
-                                options={priceRange}
-                                default="No max"
-                                onSelect={(value) => updateCriteria('maxPrice', parseInt(value.match(/(\d+)/)))}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-            <section className='results-section'>
-                <h2 id="results-text">{filteredData.length} Property Results Found</h2>
-                {filteredData.map((property) => (
-                        <PropertyCard 
-                            key={property.id}
-                            type={property.type}
-                            bedrooms={property.bedrooms}
-                            price={property.price}       
-                            location={property.location}
-                            description={property.description}
-                            picture={property.picture}
-                            added={property.added}
-                        />
-                ))}
-            </section>
+          <div className="range-value-group">
+            <label>Price Range</label>
+            <div className="range-values">
+              <DropDown
+                options={priceRange}
+                default="No min"
+                onSelect={(value) =>
+                  updateCriteria("minPrice", parseInt(value.match(/(\d+)/)))
+                }
+              />
+              <p>-</p>
+              <DropDown
+                options={priceRange}
+                default="No max"
+                onSelect={(value) =>
+                  updateCriteria("maxPrice", parseInt(value.match(/(\d+)/)))
+                }
+              />
+            </div>
+          </div>
         </div>
-    )
-}/*
+      </form>
+
+      <section className="results-section">
+        <h2 id="results-text">{filteredData.length} Property Results Found</h2>
+        {filteredData.map((property) => (
+          <PropertyCard
+            key={property.id}
+            id={property.id}
+            type={property.type}
+            bedrooms={property.bedrooms}
+            price={property.price}
+            location={property.location}
+            description={property.description}
+            picture={property.picture}
+            added={property.added}
+          />
+        ))}
+      </section>
+    </div>
+  );
+} /*
  {
     "id":"prop1",
     "type":"House", - 

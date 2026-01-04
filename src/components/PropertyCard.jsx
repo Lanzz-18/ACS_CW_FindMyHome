@@ -3,7 +3,9 @@ import Bed from "../assets/bed.png";
 import Call from "../assets/call.png";
 import Contact from "../assets/contact.png";
 import House from "../assets/house.png";
-import Link from "../assets/link.png";
+import LinkIcon from "../assets/link.png";
+import {Link} from 'react-router-dom';
+
 
 const PropertyCard = (props) => {
   return (
@@ -31,8 +33,8 @@ const PropertyCard = (props) => {
           </div>
 
           <div className="icon-group">
-            <img src={Link} alt="Bed icon"></img>
-            <a href="#">More</a>
+            <img src={LinkIcon} alt="Bed icon"></img>
+            <p><Link to={`/property/${props.id}`}>Details</Link></p>
           </div>
         </div>
 

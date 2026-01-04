@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import homeImage from "./assets/homes.jpg";
 import DropDown from './components/DropDown';
 import Footer from './components/Footer';
+import PropertyDetails from './components/PropertyDetails';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App(){
@@ -17,7 +18,8 @@ function App(){
         <div className="Content">
           <Routes>
             <Route path="/" element={<Home />}/>
-            <Route path="search-page" element={<SearchPage location="New York" purpose="sale"/>}/>
+            <Route path="search-page" element={<SearchPage />}/>
+            <Route path="property/:id" element={<PropertyDetails />} />
           </Routes>
         </div>
         <Footer />
