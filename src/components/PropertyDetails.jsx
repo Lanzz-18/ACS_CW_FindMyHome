@@ -39,7 +39,7 @@ const PropertyDetails = () => {
             <h4 id="gallery-heading">Gallery</h4>
             <div className="property-gallery">
                 <button onClick={previousImg}>&lt;</button>
-                <img src={`/images/${prop.id}/${imgIndex}.jpeg`} id="image-view"></img>
+                <img src={import.meta.env.BASE_URL + `/images/${prop.id}/${imgIndex}.jpeg`} id="image-view"></img>
                 <button onClick={nextImg}>&gt;</button>
             </div>
 
@@ -60,7 +60,7 @@ const PropertyDetails = () => {
                 </div>
 
                 <div className={toggleContent === 2 ? "show-content" : "content"} id="floor-plan">
-                    <img src={`/images/${prop.id}/floor-plan.jpg`}></img>
+                    <img src={import.meta.env.BASE_URL + `/images/${prop.id}/floor-plan.jpg`}></img>
                 </div>
 
                 <div className={toggleContent === 3 ? "show-content" : "content"} id="google-maps"> 

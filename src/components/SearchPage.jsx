@@ -226,7 +226,7 @@ const SearchPage = () => {
                 <div className="fav-props-container">
                     {favourites.map((favProperty) => (
                         <div key={favProperty.id} className="fav-prop-profile">
-                            <img src={`images/${favProperty.picture}`} alt="Property picture" />
+                            <img src={import.meta.env.BASE_URL + `images/${favProperty.picture}`} alt="Property picture" />
                             <div>
                                 <p id="favourite-prop-location">{favProperty.location}</p>
                                 <p id="favourite-prop-type"><string>{favProperty.type}</string></p>
