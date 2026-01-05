@@ -1,9 +1,4 @@
 import React, { useState } from "react";
-import Bed from "/images/bed.png";
-import Call from "/images/call.png";
-import Contact from "/images/contact.png";
-import House from "/images/house.png";
-import LinkIcon from "/images/link.png";
 import { Link } from "react-router-dom";
 
 const PropertyCard = (props) => {
@@ -26,17 +21,17 @@ const PropertyCard = (props) => {
             <p>{props.description}</p>
             <div className="icon-groups">
                 <div className="icon-group">
-                    <img src={House} alt="Bed icon"></img>
+                    <img src={"/images/house.png"} alt="house icon"></img>
                     <p>{props.type}</p>
                 </div>
 
                 <div className="icon-group">
-                    <img src={Bed} alt="Bed icon"></img>
+                    <img src={"/images/bed.png"} alt="bed icon"></img>
                     <p>{props.bedrooms}</p>
                 </div>
 
                 <div className="icon-group">
-                    <img src={LinkIcon} alt="Bed icon"></img>
+                    <img src={"/images/link.png"} alt="link icon"></img>
                     <p>
                     <Link to={`/property/${props.id}`}>Details</Link>
                     </p>
@@ -46,10 +41,10 @@ const PropertyCard = (props) => {
             <div className="product-card-footer">
                 <div className="contact-details">
                     <div className="contact-group">
-                        <img src={Call} alt="telephone icon"></img>
+                        <img src={"/images/call.png"} alt="telephone icon"></img>
                     </div>
                     <div className="contact-group" id="mail">
-                        <img src={Contact} alt="mail icon"></img>
+                        <img src={"/images/contact.png"} alt="mail icon"></img>
                     </div>
                 </div>
                 <button id="favourite-button" onClick={props.onFavClick}>
