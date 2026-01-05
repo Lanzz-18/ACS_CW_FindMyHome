@@ -81,14 +81,3 @@ const PropertyDetails = () => {
 };
 
 export default PropertyDetails;
-
-/*
- <iframe
-    title="Property location"
-    width="100%"
-    height="300"
-    style={{ border: 0 }}
-    loading="lazy"
-    src={'{https://maps.google.com/maps?q=${encodeURIComponent(property.location)}&z=15&output=embed}'}
-/>
-*/
