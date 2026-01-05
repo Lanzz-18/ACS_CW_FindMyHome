@@ -6,7 +6,7 @@ const Home = () => {
         <div className="home">
             {/* Image card */}
             <div className="main-panel">
-                <h1><span>Believe</span> in finding it</h1>
+                <h1><span>Believe testing</span> in finding it</h1>
                 <h3>With the UK's largest choice of homes</h3>
 
                 <div className="search-panel">
