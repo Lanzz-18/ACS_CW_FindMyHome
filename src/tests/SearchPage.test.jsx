@@ -14,7 +14,7 @@ describe(SearchPage, () => {
     })
 
     // Individual tests
-    test("favourites button", () => {
+    test("testing out the functionality of favourites button", () => {
         const addButtons = screen.getAllByRole('button', {name:/add to favourite/i});
         fireEvent.click(addButtons[0])
         const removeButton = screen.getByRole('button', { name: /remove/i });

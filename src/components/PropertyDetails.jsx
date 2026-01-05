@@ -65,7 +65,14 @@ const PropertyDetails = () => {
 
                 <div className={toggleContent === 3 ? "show-content" : "content"} id="google-maps"> 
                     <h3>Google Maps Location</h3>
-                    <a href={`${prop["google-link"]}`} target="_blank">View on maps</a>
+                    <iframe
+                        title={prop.location}
+                        width="100%"
+                        height="300"
+                        style={{ border: 0 }}
+                        loading="lazy"
+                        src={`https://maps.google.com/maps?q=${encodeURIComponent(prop.location)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                    />
                 </div>
             </div>
         </div>
