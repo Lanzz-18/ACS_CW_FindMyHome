@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Footer from './components/Footer';
 import PropertyDetails from './components/PropertyDetails';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 
 function App(){
   return(
